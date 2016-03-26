@@ -12,7 +12,7 @@ var $ = jQuery.noConflict(true);
 
 if(window.top === window.self) {
     console.log("Loaded script: " + GM_info.script.namespace + ":" + GM_info.script.name + ":" + GM_info.script.version);
-
+    
     function doCheck() {
         var content = $("input[type=password]").not(".PWGChecked");
         content.each(function() {
@@ -24,16 +24,14 @@ if(window.top === window.self) {
             });
             this.oncontextmenu = function(e) {
                 window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
-                console.log(e);
                 return false;
             };
             $this.attr("title", "Page is not secured, RMB to reload secure.");
         });
     }
-
-
+    
     if (window.top === window.self && window.location.protocol != "https:") {
         interval = setInterval(doCheck, 500);
-        $("head:first").append("<style>.PWGUnsafe {background-color:red;} .PWGNoticed {background-color:yellow;}</style>");
+        $("head:first").append("<style>input.PWGUnsafe {background-color:red !important;} input.PWGNoticed {background-color:yellow !important;}</style>");
     }
 }
