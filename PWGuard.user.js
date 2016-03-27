@@ -2,7 +2,7 @@
 // @name        PWGuard
 // @namespace   MG
 // @description Warns the user for non-secure password fields.
-// @include     *
+// @include     http:*
 // @version     1.0.2
 // @grant       none
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
